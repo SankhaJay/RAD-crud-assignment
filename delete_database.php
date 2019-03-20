@@ -15,21 +15,20 @@
         echo "Could not run query: ". mysqli_error($db);
         exit;
     }
-    $num = mysqli_num_rows($result);
-    $row = mysqli_fetch_row($result);
+    $num = mysqli_num_rows($result);//getting num of rows for the query
     if($num==0){
-        echo "cannot delete.entry doesn't exist";
+        echo "cannot delete. Entry doesn't exist";
     }
      else{
         $sql = mysqli_query($db,"DELETE FROM time_table 
-        WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");
+        WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");//sql query to delete the entry
         if (!$sql) {
             echo "Could not run query: ". mysqli_error($db);
             exit;
         }
-        echo "deleted succesfully";
+        echo "Deleted succesfully";
     } 
-
+    mysqli_close($db);
 ?>   
 
 </body>

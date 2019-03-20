@@ -9,8 +9,8 @@
 </head>
 
 <body>
-Select the day,time slot and the lecture hall to update<br>
-    <form action="update_database.php" method="post">
+<h3>Select the day,time slot and the lecture hall to update</h3>
+    <h4><form action="update_database.php" method="post">
         Day:<select name="day">
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
@@ -28,8 +28,8 @@ Select the day,time slot and the lecture hall to update<br>
         Lecture Hall Number:<select name="l_hall">
         <option value="1">001</option>
         <option value="2">002</option>
-        </select><br>
-Enter details to update the time table<br>
+        </select><br><br>
+        Enter details to update the time table<br><br>
         Teacher's Name:<input type="text" name="t_name"><br>
         Subject Name:  <select name="subject">
             <option value="Sinhala">Sinhala</option>
@@ -41,5 +41,6 @@ Enter details to update the time table<br>
             <option value="Art">Art</option>
         </select><br>
         <input type="submit" name="submit"> <br>
+        </form></h4>
 </body>
 </html>

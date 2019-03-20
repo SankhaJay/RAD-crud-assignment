@@ -9,8 +9,8 @@
 </head>
 
 <body>
-Select the day,time slot and the lecture hall to delete<br>
-    <form action="delete_database.php" method="post">
+<h3>Select the day,time slot and the lecture hall to delete</h3>
+    <h4><form action="delete_database.php" method="post">
         Day:<select name="day">
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
@@ -30,5 +30,6 @@ Select the day,time slot and the lecture hall to delete<br>
         <option value="2">002</option>
         </select><br>
         <input type="submit" name="submit"> <br>
+        </form></h4>
 </body>
 </html>

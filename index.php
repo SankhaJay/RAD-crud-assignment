@@ -9,10 +9,12 @@
 </head>
 
 <body>
+    <h2>Select a option</h2> 
+    <h3>
     <a href ="create.php">Add a entry to the timetable</a> <br>
     <a href ="update.php">Update a entry in the timetable</a> <br>
     <a href ="delete.php">Delete a entry in the timetable</a> <br>
     <a href ="view.php">View timetable</a>
-
+    </h3>
 </body>
 </html>

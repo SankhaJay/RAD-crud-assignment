@@ -15,22 +15,21 @@
         echo "Could not run query: ". mysqli_error($db);
         exit;
     }
-    $num = mysqli_num_rows($result);
-    $row = mysqli_fetch_row($result);
+    $num = mysqli_num_rows($result);//getting num of rows for the query
     if($num==0){
-        echo "cannot update.entry doesn't exist";
+        echo "cannot update. Entry doesn't exist";
     }
      else{
         $sql = mysqli_query($db,"UPDATE time_table 
         SET t_name='$_POST[t_name]',subject='$_POST[subject]'
-        WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");
+        WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");//sql query to update the query
         if (!$sql) {
             echo "Could not run query: ". mysqli_error($db);
             exit;
         }
-        echo "updated succesfully";
+        echo "Updated succesfully";
     } 
-
+    mysqli_close($db);
 ?>   
 
 </body>

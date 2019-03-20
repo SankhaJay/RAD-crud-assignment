@@ -15,21 +15,20 @@
         echo "Could not run query: ". mysqli_error($db);
         exit;
     }
-    $num = mysqli_num_rows($result);
-    $row = mysqli_fetch_row($result);
+    $num = mysqli_num_rows($result);//getting num of rows for the query
     if($num>0){
-        echo "cannot insert";
+        echo "cannot insert";//record already exists so cannot add 
     }
      else{
         $sql = mysqli_query($db,"INSERT INTO time_table 
-        VALUES ('$_POST[day]','$_POST[time]','$_POST[subject]','$_POST[t_name]','$_POST[l_hall]',1)");
+        VALUES ('$_POST[day]','$_POST[time]','$_POST[subject]','$_POST[t_name]','$_POST[l_hall]',1)");//sql query to add the entry
         if (!$sql) {
             echo "Could not run query: ". mysqli_error($db);
             exit;
         }
-        echo "added succesfully";
+        echo "Added succesfully";
     } 
-
+    mysqli_close($db);
 ?>   
 
 </body>

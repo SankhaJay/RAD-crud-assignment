@@ -23,7 +23,7 @@
 <body>
 <?php
 
-    function pri($db,$day,$time,$l_hall){
+    function printSlot($db,$day,$time,$l_hall){//function to print the data in the time slots of the time table
         $result = mysqli_query($db,"SELECT * from time_table WHERE day ='$day' AND time = '$time' AND l_hall = '$l_hall'");
         if (!$result) {
             echo "Could not run query: ". mysqli_error($db);
@@ -32,11 +32,13 @@
         $row = mysqli_fetch_row($result);
         $num = mysqli_num_rows($result);
         if($num==0){
-            return;
+            echo "-";
+            return;//if there are no rows this means that time slot is not occupied
         }
         else{
             $str = "$row[3].<br>$row[2]";
-            echo $str;
+            echo $str; //printing corresponding teacher name and subject 
+            return;
         }
 
     }
@@ -70,65 +72,66 @@
         <tr>
             <td>2pm - 3pm</td>
         
-            <td><?php pri($db,"Monday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Monday","2pm - 3pm",2); ?> </td>
-            <td><?php pri($db,"Tuesday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Tuesday","2pm - 3pm",2); ?> </td>
-            <td><?php pri($db,"Wednesday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Wednesday","2pm - 3pm",2); ?> </td>
-            <td><?php pri($db,"Thursday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Thursday","2pm - 3pm",2); ?> </td>
-            <td><?php pri($db,"Friday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Friday","2pm - 3pm",2); ?> </td>
-            <td><?php pri($db,"Sunday","2pm - 3pm",1); ?> </td>
-            <td><?php pri($db,"Sunday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Monday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Monday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Tuesday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Tuesday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Wednesday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Wednesday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Thursday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Thursday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Friday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Friday","2pm - 3pm",2); ?> </td>
+            <td><?php printSlot($db,"Sunday","2pm - 3pm",1); ?> </td>
+            <td><?php printSlot($db,"Sunday","2pm - 3pm",2); ?> </td>
         </tr>
         <tr>
             <td>3pm - 4pm</td>
-            <td><?php pri($db,"Monday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Monday","3pm - 4pm",2); ?> </td>
-            <td><?php pri($db,"Tuesday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Tuesday","3pm - 4pm",2); ?> </td>
-            <td><?php pri($db,"Wednesday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Wednesday","3pm - 4pm",2); ?> </td>
-            <td><?php pri($db,"Thursday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Thursday","3pm - 4pm",2); ?> </td>
-            <td><?php pri($db,"Friday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Friday","3pm - 4pm",2); ?> </td>
-            <td><?php pri($db,"Sunday","3pm - 4pm",1); ?> </td>
-            <td><?php pri($db,"Sunday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Monday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Monday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Tuesday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Tuesday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Wednesday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Wednesday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Thursday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Thursday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Friday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Friday","3pm - 4pm",2); ?> </td>
+            <td><?php printSlot($db,"Sunday","3pm - 4pm",1); ?> </td>
+            <td><?php printSlot($db,"Sunday","3pm - 4pm",2); ?> </td>
         </tr>
         <tr>
             <td>4pm - 5pm</td>
-            <td><?php pri($db,"Monday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Monday","4pm - 5pm",2); ?> </td>
-            <td><?php pri($db,"Tuesday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Tuesday","4pm - 5pm",2); ?> </td>
-            <td><?php pri($db,"Wednesday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Wednesday","4pm - 5pm",2); ?> </td>
-            <td><?php pri($db,"Thursday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Thursday","4pm - 5pm",2); ?> </td>
-            <td><?php pri($db,"Friday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Friday","4pm - 5pm",2); ?> </td>
-            <td><?php pri($db,"Sunday","4pm - 5pm",1); ?> </td>
-            <td><?php pri($db,"Sunday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Monday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Monday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Tuesday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Tuesday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Wednesday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Wednesday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Thursday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Thursday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Friday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Friday","4pm - 5pm",2); ?> </td>
+            <td><?php printSlot($db,"Sunday","4pm - 5pm",1); ?> </td>
+            <td><?php printSlot($db,"Sunday","4pm - 5pm",2); ?> </td>
         </tr>
         <tr>
             <td>5pm - 6pm</td>
-            <td><?php pri($db,"Monday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Monday","5pm - 6pm",2); ?> </td>
-            <td><?php pri($db,"Tuesday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Tuesday","5pm - 6pm",2); ?> </td>
-            <td><?php pri($db,"Wednesday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Wednesday","5pm - 6pm",2); ?> </td>
-            <td><?php pri($db,"Thursday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Thursday","5pm - 6pm",2); ?> </td>
-            <td><?php pri($db,"Friday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Friday","5pm - 6pm",2); ?> </td>
-            <td><?php pri($db,"Sunday","5pm - 6pm",1); ?> </td>
-            <td><?php pri($db,"Sunday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Monday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Monday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Tuesday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Tuesday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Wednesday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Wednesday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Thursday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Thursday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Friday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Friday","5pm - 6pm",2); ?> </td>
+            <td><?php printSlot($db,"Sunday","5pm - 6pm",1); ?> </td>
+            <td><?php printSlot($db,"Sunday","5pm - 6pm",2); ?> </td>
         </tr>
 
     </table>
+    <?php mysqli_close($db);?>
 </body>
 </html>

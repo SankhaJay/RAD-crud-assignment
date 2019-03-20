@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <form action="create_database.php" method="post">
+    <h3>Enter data to add a time table entry </h3>
+    <h4>
+    <form action="create_database.php" method="post"> <!-- data will be send to this page using POST method -->
         Day:<select name="day">
             <option value="Monday">Monday</option>
             <option value="Tuesday">Tuesday</option>
@@ -39,7 +41,7 @@
         <option value="2">002</option>
         </select><br>
         <input type="submit" name="submit"> <br>
-
+        </h4>
     </form>
 
 </body>
