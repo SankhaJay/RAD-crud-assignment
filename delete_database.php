@@ -10,24 +10,24 @@
 
 <body>
 <?php
-    $result = mysqli_query($db,"SELECT * from time_table WHERE day ='$_POST[day]' and time = '$_POST[time]' and l_hall = '$_POST[l_hall]'");
+    $result = mysqli_query($db,"SELECT * from time_table WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");
     if (!$result) {
         echo "Could not run query: ". mysqli_error($db);
         exit;
     }
     $num = mysqli_num_rows($result);
     $row = mysqli_fetch_row($result);
-    if($num>0){
-        echo "cannot insert";
+    if($num==0){
+        echo "cannot delete.entry doesn't exist";
     }
      else{
-        $sql = mysqli_query($db,"INSERT INTO time_table 
-        VALUES ('$_POST[day]','$_POST[time]','$_POST[subject]','$_POST[t_name]','$_POST[l_hall]',1)");
+        $sql = mysqli_query($db,"DELETE FROM time_table 
+        WHERE day ='$_POST[day]' AND time = '$_POST[time]' AND l_hall = '$_POST[l_hall]'");
         if (!$sql) {
             echo "Could not run query: ". mysqli_error($db);
             exit;
         }
-        echo "added succesfully";
+        echo "deleted succesfully";
     } 
 
 ?>   

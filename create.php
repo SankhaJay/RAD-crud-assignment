@@ -38,7 +38,6 @@
         <option value="1">001</option>
         <option value="2">002</option>
         </select><br>
-        <input type="text" name="l_hall"> <br>
         <input type="submit" name="submit"> <br>
 
     </form>
