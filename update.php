@@ -9,7 +9,7 @@
 </head>
 
 <body>
-Select the day,time slot and the lecture hall<br>
+Select the day,time slot and the lecture hall to update<br>
     <form action="update_database.php" method="post">
         Day:<select name="day">
             <option value="Monday">Monday</option>
